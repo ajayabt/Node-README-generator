@@ -1,33 +1,35 @@
+# Node README generator
 
-# A
-
-## Table of Contents
-- [Description](#description)
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Contributing](#contributing)
-- [Tests](#tests)
-- [Questions](#questions)
 
 ## Description
-as
+
+This app has been developed to generate a README as a markdown file based on responses to set prompts in the CLI.
+
 
 ## Installation
-asf
+
+This app can be run by cloning the repository and navigating to the local directory which contains the index.js file. From here, run 'node index.js'. This will initiate the program to run the prompts in the command line. Respond to the questions, upon completion, the message will read 'Successfully created generatedMarkdown.md'. This can file can be found in the same directory.
+
 
 ## Usage
-asd
+
+This package can be run using the CLI. See above.
+
+
+
+
+## Credits
+We were provided with some starter code to structure the challenge. Inquirer is used which provides snippets to aid in deployment. Thanks to the bootcamp instructors and TAs who have enabled me to get this far.
+
+## Screenshot and links
+
+
+
+
+GitHub LINK: https://github.com/ajayabt/Node-README-generator
+
+Walkthrough Video: https://drive.google.com/file/d/1jK6oIicCEi8-7ExoK0usTYpVHBwISHFw/view?usp=sharing 
+
 
 ## License
-This application is covered under the MIT license.
-
-## Contributing
-help
-
-## Tests
-run test
-
-## Questions
-If you have any questions or need further assistance, please feel free to reach out to me on [GitHub](https://github.com/aja) or via email at ajaja.
-  
+CC0-1.0
