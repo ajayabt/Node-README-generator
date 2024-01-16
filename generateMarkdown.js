@@ -3,6 +3,7 @@ function generateMarkdown(answers) {
   const licenseBadge = answers.license ? `![License](https://img.shields.io/badge/license-${encodeURIComponent(answers.license)}-blue.svg)` : '';
 
   return `
+  ${licenseBadge}
 # ${answers.title}
 
 ## Table of Contents

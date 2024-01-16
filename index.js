@@ -73,7 +73,7 @@ function writeToFile(answers) {
         .then(answers => {
             const readmeContent = generateMarkdown(answers);
             fs.writeFileSync('generatedMarkdown.md', readmeContent);
-            console.log('Successfully created README.md');
+            console.log('Successfully created generatedMarkdown.md');
         })
         .catch(error => console.error('An error occurred:', error));
 }
