@@ -7,64 +7,77 @@ const generateMarkdown = require("./generateMarkdown.js");
 
 
 const questions = [
-  {
-    type: 'input',
-    name: 'title',
-    message: 'What is the title of your project?',
-    validate: (value) => {
-      if (value.length) {
-        return true;
-      } else {
-        return 'Please enter a title for your project.';
-      }
+    {
+      type: 'input',
+      name: 'title',
+      message: 'Enter the project title:',
     },
-  },
-  {
-    type: 'input',
-    name: 'description',
-    message: 'Provide a description of the project:',
-  },
-  {
-    type: 'input',
-    name: 'installation',
-    message: 'How is the project installed?',
-  },
-  {
-    type: 'input',
-    name: 'usage',
-    message: 'How should the project be used?',
-  },
-  {
-    type: 'list',
-    name: 'license',
-    message: 'Which license does the project use?',
-    choices: ['MIT', 'Apache 2.0', 'GPLv3', 'BSD 3-Clause', 'None'],
-  },
-  {
-    type: 'input',
-    name: 'contributing',
-    message: 'How can others contribute to the project?',
-  },
-  {
-    type: 'input',
-    name: 'tests',
-    message: 'How can users test the project?',
-  }
-
+    {
+      type: 'input',
+      name: 'description',
+      message: 'Enter a description:',
+    },
+    {
+      type: 'input',
+      name: 'installation',
+      message: 'Enter installation instructions:',
+    },
+    {
+      type: 'input',
+      name: 'usage',
+      message: 'Enter usage information:',
+    },
+    {
+      type: 'list',
+      name: 'license',
+      message: 'Choose a license for your application:',
+      choices: ['MIT', 'Apache 2.0', 'GNU GPL v3', 'Other'],
+    },
+    {
+      type: 'input',
+      name: 'contributing',
+      message: 'Enter contribution guidelines:',
+    },
+    {
+      type: 'input',
+      name: 'tests',
+      message: 'Enter test instructions:',
+    },
+    {
+      type: 'input',
+      name: 'github',
+      message: 'Enter your GitHub username:',
+    },
+    {
+      type: 'input',
+      name: 'email',
+      message: 'Enter your email address:',
+    },
 ];
 
-// function to write README file
-function writeToFile(fileName, data) {
+
+function writeToFile(answers) {
+    const readmeContent = generateMarkdown(answers);
+    fs.writeFile('newMarkdown.md', readmeContent, (err) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log('newMarkdown.md file has been generated successfully.');
+      }
+    });
+  }
+  
+  // function to initialize program
+  function init() {
+    inquirer.prompt(questions)
+        .then(answers => {
+            const readmeContent = generateMarkdown(answers);
+            fs.writeFileSync('generatedMarkdown.md', readmeContent);
+            console.log('Successfully created README.md');
+        })
+        .catch(error => console.error('An error occurred:', error));
 }
-
-// function to initialize program
-function init() {inquirer.prompt(questions).then((answers) => {
-
-    console.log(answers);
-}).catch((error) => {
-    console.error('An error occurred: ', error);
-});
-}
-
-// function call to initialize program
-init();
+  
+  // function call to initialize program
+  init();
+  
